@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Cybersecurity Challenge - Verification Portal</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#06142c,#0d2245);
+    color:white;
+}
+
+.container{
+    width:90%;
+    max-width:700px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,215,0,0.3);
+    border-radius:20px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 0 30px rgba(0,0,0,.4);
+}
+
+.logo{
+    font-size:60px;
+    margin-bottom:15px;
+}
+
+h1{
+    color:#FFD700;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#ccc;
+    margin-bottom:35px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    margin-bottom:15px;
+    outline:none;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#FFD700;
+    color:#000;
+    font-weight:bold;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+.footer{
+    margin-top:30px;
+    color:#aaa;
+    font-size:14px;
+}
+
+.error{
+    margin-top:20px;
+    color:#ff6666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">🔐</div>
+
+<h1>Global Cybersecurity Challenge</h1>
+
+<p class="subtitle">
+Official Certificate Verification Portal
+</p>
+
+<input
+type="text"
+id="certId"
+placeholder="Enter Certificate ID">
+
+<button onclick="verifyCertificate()">
+Verify Certificate
+</button>
+
+<div id="message"></div>
+
+<div class="footer">
+© 2026 Global Cybersecurity Challenge
+</div>
+
+</div>
+
+<script>
+
+const certificates = {
+
+"GCC2026-91A7B3C8":"certificates/ismail.html",
+"GCC2026-AAAA1111":"certificates/winner2.html",
+"GCC2026-BBBB2222":"certificates/winner3.html"
+
+};
+
+function verifyCertificate(){
+
+const id =
+document.getElementById("certId")
+.value
+.trim()
+.toUpperCase();
+
+if(certificates[id]){
+
+window.location.href =
+certificates[id];
+
+}else{
+
+document.getElementById("message")
+.innerHTML =
+'<p class="error">❌ Invalid Certificate ID</p>';
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
